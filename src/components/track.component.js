@@ -15,7 +15,7 @@ function Track(props) {
         <div className="track-section__right">
             <h2>{title}</h2>
             <h3>{artistName}</h3>
-            <a href={artistURL}>Artist Page</a>
+            <a onClick={event => event.stopPropagation()} href={artistURL}>Artist Page</a>
         </div>
     </div>
   );

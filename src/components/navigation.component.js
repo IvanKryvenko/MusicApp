@@ -10,7 +10,7 @@ function Nav() {
                 <li>Home</li>
             </Link>
             <Link to='/search'>
-                <li>Search</li>
+                <li>Search &#128270;</li>
             </Link>
         </ul>
     </nav>
