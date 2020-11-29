@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import getTrackInfo from '../redux/actions/artistInfo';
+import artistInfo from '../redux/actions/artistInfo';
 
 function ArtistDetail(props) {
 
@@ -9,17 +9,26 @@ function ArtistDetail(props) {
         props.onFetchTrack(artist[1]);
     }, []);
 
-    return (
-        <div className="artist-detail">
-            <div>
-                <img src="https://pbs.twimg.com/profile_images/831815230325944320/jx12u6q0_400x400.jpg" alt="artist"></img>
-            </div>
-            <div>
-                <h2>{props.artistInfo.name}</h2>
-                <p></p>
-            </div>
-        </div> 
-    );
+    if(!props.artistInfo.bio 
+        && !props.artistInfo.image 
+        && !props.artistInfo.tags 
+        && !props.artistInfo.name) {
+            return (
+                <div><h2>Please wait!</h2></div>
+            )
+        } else {
+            return (
+                <div className="artist-detail">
+                    <div>
+                        <img src={props.artistInfo.image[4]["#text"]} alt="artist"></img>
+                    </div>
+                    <div>
+                        <h2>{props.artistInfo.name}</h2>
+                        <p>{props.artistInfo.bio.content}</p>
+                    </div>
+                </div> 
+            )
+        }
 }
 
 export default connect(
@@ -28,7 +37,7 @@ export default connect(
     }),
     dispatch => ({
         onFetchTrack: (artist) => {
-            dispatch(getTrackInfo(artist))
+            dispatch(artistInfo(artist))
         }
     })
 )(ArtistDetail);

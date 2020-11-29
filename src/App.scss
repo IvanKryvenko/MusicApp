@@ -32,6 +32,10 @@ nav {
   background-color: $header;
   color: white;
   padding: 5px;
+
+  h2 {
+    margin-left: 20px;
+  }
   
 
   ul {
@@ -60,6 +64,7 @@ nav {
     display: flex;
     justify-content: space-between; 
     transition: 0.2s;
+    padding: 5px;
 
     .track-section__left {
       padding: 5px;
@@ -132,6 +137,13 @@ nav {
   padding: 20px;
   justify-content: space-between;
   background-color: $mainBackgroundColor;
+  h2 {
+    color: white;
+  } 
+
+  p {
+    color: #A2A2A2;
+  }
 
   div {
     padding: 10px;
